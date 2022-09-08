@@ -1,0 +1,7 @@
+aws:
+  paramstore:
+    fail-fast: true
+    enabled: true
+    name: MySQLAuthApplication
+    prefix: /mysqlauth
+    profile-separator: '-'

@@ -1,0 +1,1 @@
+org.springframework.cloud.bootstrap.BootstrapConfiguration=org.ab2.ab2change.config.AwsParameterStoreBootstrapConfiguration

@@ -6,12 +6,12 @@ from botocore.exceptions import ClientError
 
 region = "ap-southeast-1"
 host="%"
-passwordKey="mysql.password"
+passwordKey="/mysqlauth/MySQLAuthApplication/spring.datasource.password"
 
 def generate_random_password(password_length):
     """Generates a random password"""
     secrets_client = boto3.client("secretsmanager", region_name=region)
-    response = secrets_client.get_random_password(PasswordLength=password_length, ExcludeCharacters="")
+    response = secrets_client.get_random_password(PasswordLength=password_length, ExcludeCharacters="\"'@/\\")
     return response
 
 # Define a method to create a database connection
@@ -71,9 +71,10 @@ mySQLCursor     = mySQLConnection.cursor()
 
 # dropUser(mySQLCursor,"root")
 
-print(generate_random_password(32))
+newPassword=generate_random_password(32)['RandomPassword']
 
-newPassword="sun12345"
+print(newPassword)
+
 alterUser(mySQLCursor, "root", newPassword)
 # createUser(mySQLCursor, "test", "sun1234444")
 

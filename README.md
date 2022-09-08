@@ -21,7 +21,13 @@ sudo yum install -y mysql-client
 
 # 登录数据测试连通性
 
+```
 mysql -h 127.0.0.1 -uroot -p 
+```
+
+# 在AWS创建一个存储，方便Spring Boot读取
+
+![](images/2022-09-08-13-29-04.png)
 
 # 根据您的项目名称修改 数据库与Spring对接的参数名
 
